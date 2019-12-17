@@ -5,11 +5,12 @@ import Sidebar from './components/Sidebar/Sidebar';
 
 import './core.scss';
 
-const Layout = () => {
+const Layout = (props) => {
   return (
-    <div className="app-container">
+    <div id="app-container">
       <Header />
       <Sidebar />
+      <div id="content-container">{props.children}</div> 
     </div>
   );
 }

@@ -5,7 +5,7 @@ body {
   padding: 0;
   margin: 0;
   
-  .app-container {
+  #app-container {
     #header {
       position: fixed;
       top: 0;
@@ -23,6 +23,16 @@ body {
       width: 220px;
       background: $sand;
     }
-  
+    
+    #content-container {
+      position: fixed;
+      top: 50px;
+      left: 220px;
+      width: calc(100vw - 220px);
+      height: calc(100vh - 50px);
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+
   }
 }
