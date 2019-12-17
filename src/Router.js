@@ -6,9 +6,9 @@ const AppRouter = () => (
     <Router>
         <Layout >
           <Switch>
-          <Route exact path="/expense"/>
-          <Route exact path="/income"/>
-          <Route path="/" />
+          <Route exact path="/expenses"/>
+          <Route exact path="/incomes"/>
+          <Route exact path="/" />
         </Switch>
         </Layout>
     </Router>
