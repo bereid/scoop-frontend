@@ -34,8 +34,7 @@ body {
       left: 220px;
       width: calc(100vw - 220px);
       height: calc(100vh - 50px);
-      overflow-y: scroll;
-      overflow-x: hidden;
+      overflow: hidden;
     }
 
   }
