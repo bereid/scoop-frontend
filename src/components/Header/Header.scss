@@ -1,0 +1,18 @@
+@import '../../variables';
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+
+  .logo a {
+    text-decoration: none;
+    color: $light-text;
+    font-size: 26px;
+    line-height: 26px;
+    height: 26px;
+    cursor: pointer;
+    font-family: 'Lilita One', cursive;
+  }
+}
