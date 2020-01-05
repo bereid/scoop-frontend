@@ -5,20 +5,68 @@
   overflow-y: scroll;
   overflow-x: hidden;
   padding: 30px;
-  .table-header {
-    height: 20px;
+  .table {
     margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border-top: 1px solid $sand-shadow;
-    border-bottom: 1px solid $sand-shadow;
-    background: rgba($sand, 0.5);
-    cursor: pointer;
-    color: $night-blue-shadow;
+    .table-header {
+      height: 30px;
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
+      border-top: 1px solid $sand-shadow;
+      border-bottom: 1px solid $sand-shadow;
+      background: rgba($sand, 0.5);
+      cursor: pointer;
+      color: $night-blue-shadow;
 
-    svg {
-      margin: 5px;
+      svg {
+        margin: 5px;
+      }
+    }
+
+    .table-content {
+      display: none;
+      width: 100%;
+
+      &.opened {
+        display: block;
+      }
+
+      .table-row {
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+
+        &:nth-child(even) {
+          background: rgba($sand, 0.2);
+        }
+        &:nth-child(odd) {
+          background: transparent;
+        }
+
+        .cell {
+          height: 30px;
+          line-height: 30px;
+          font-size: 14px;
+          display: flex;
+          align-items: center;
+          &.icon {
+            width: 50px;
+            justify-content: center;
+            cursor: pointer;
+            svg {
+              width: 16px;
+              height: 16px;
+            }
+          }
+          &.growing {
+            width: calc(100% - 300px);
+          }
+          &.wider {
+            width: 250px;
+            justify-content: center;
+          }
+        }
+      }
     }
   }
 }
