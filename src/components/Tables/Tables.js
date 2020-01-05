@@ -21,19 +21,19 @@ const Tables = (props) => {
     <div className="table-container">
       <div className="table-header" onClick={() => expandTable("bills")}>
         <ColoredIcons>
-          <MdExpandMore />
+          {expandedTable.includes("bills") ? <MdExpandLess /> : <MdExpandMore />}
         </ColoredIcons>
         Bills
         </div>
       <div className="table-header" onClick={() => expandTable("caps")}>
         <ColoredIcons>
-          <MdExpandMore />
+          {expandedTable.includes("caps") ? <MdExpandLess /> : <MdExpandMore />}
         </ColoredIcons>
         Expense caps
         </div>
       <div className="table-header" onClick={() => expandTable("else")}>
         <ColoredIcons>
-          <MdExpandMore />
+          {expandedTable.includes("else") ? <MdExpandLess /> : <MdExpandMore />}
         </ColoredIcons>
         Else
         </div>
