@@ -4,10 +4,77 @@
   height: calc(100vh - 50px);
   overflow-y: scroll;
   overflow-x: hidden;
+  padding: 30px;
   .table {
-    height: 300px;
-    padding: 50px;
-    margin: 50px;
-    background: $sand-shadow;
+    margin-bottom: 20px;
+    .table-header {
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0px 15px;
+      border-top: 1px solid $sand-shadow;
+      border-bottom: 1px solid $sand-shadow;
+      background: rgba($sand, 0.5);
+      cursor: pointer;
+      color: $night-blue-shadow;
+
+      .title {
+        display: flex;
+        align-items: center;
+      }
+
+      svg {
+        margin-right: 5px;
+      }
+
+      .sum {
+        font-weight: 700;
+      }
+    }
+
+    .table-content {
+      max-height: 0px;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out;
+      width: 100%;
+
+      .table-row {
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+
+        &:nth-child(even) {
+          background: rgba($sand, 0.2);
+        }
+        &:nth-child(odd) {
+          background: transparent;
+        }
+
+        .cell {
+          height: 30px;
+          line-height: 30px;
+          font-size: 14px;
+          display: flex;
+          align-items: center;
+          &.icon {
+            width: 50px;
+            justify-content: center;
+            cursor: pointer;
+            svg {
+              width: 16px;
+              height: 16px;
+            }
+          }
+          &.growing {
+            width: calc(100% - 300px);
+          }
+          &.wider {
+            width: 250px;
+            justify-content: center;
+          }
+        }
+      }
+    }
   }
 }

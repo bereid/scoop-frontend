@@ -12,34 +12,33 @@ const hoverColors = {
   chart4: '#c3b4d2',
 };
 
-export function pieData() {
+export function pieData(expenses) {
+  let dataToRender = {}
+  expenses.forEach(e => {
+    if (!Object.keys(dataToRender).includes(e.type)) {
+      Object.assign(dataToRender, { [e.type]: e.price })
+    } else {
+      dataToRender[e.type] += e.price
+    }
+  });
+
   return {
-    labels: ['Living', 'Fuel', 'Food',
-      'Recreation'],
+    labels: Object.keys(dataToRender),
     datasets: [
       {
-        label: 'Rainfall',
-        borderWidth: 0,
-        hoverBorderWidth: 0,
-        backgroundColor: [
-          colors.chart1,
-          colors.chart2,
-          colors.chart3,
-          colors.chart4,
-        ],
-        hoverBackgroundColor: [
-          hoverColors.chart1,
-          hoverColors.chart2,
-          hoverColors.chart3,
-          hoverColors.chart4,
-        ],
-        data: [65, 20, 80, 11]
+        borderWidth: 2,
+        hoverBorderWidth: 2,
+        backgroundColor: Object.values(colors),
+        hoverBackgroundColor: Object.values(hoverColors),
+        data: Object.values(dataToRender),
       }
     ]
   }
 }
 
-export function barData() {
+export function barData(expenses) {
+  let sumOfExpenses = 0;
+  expenses.forEach(e => { sumOfExpenses += e.price});
   return {
     labels: ['Planned', 'Actual'],
     datasets: [
@@ -47,7 +46,7 @@ export function barData() {
         label: 'Expenses',
         backgroundColor: colors.chart1,
         borderWidth: 0,
-        data: [65, 43]
+        data: [111, sumOfExpenses]
       }
     ]
   }
