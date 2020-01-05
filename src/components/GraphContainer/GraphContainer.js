@@ -1,16 +1,17 @@
 import React from 'react';
-import { Pie, Doughnut, Bar } from 'react-chartjs-2';
+import { Pie, Bar } from 'react-chartjs-2';
 import * as chartFunctions from '../../helpers/chartFunctions';
 
 import './GraphContainer.scss';
 
 
-const GraphContainer = () => {
+const GraphContainer = (props) => {
+  const { expenses } = props;
   return (
     <div id="graph-container">
       <div className="graph-box">
         <Pie
-          data={chartFunctions.pieData()}
+          data={chartFunctions.pieData(expenses)}
           options={{
             maintainAspectRatio: false,
             title: {
@@ -26,25 +27,8 @@ const GraphContainer = () => {
         />
       </div>
       <div className="graph-box">
-      <Doughnut
-          data={chartFunctions.pieData()}
-          options={{
-            maintainAspectRatio: false,
-            title:{
-              display:true,
-              text:'Average Rainfall per month',
-              fontSize: 14
-            },
-            legend:{
-              display:true,
-              position:'right'
-            }
-          }}
-        />
-      </div>
-      <div className="graph-box">
         <Bar
-          data={chartFunctions.barData()}
+          data={chartFunctions.barData(expenses)}
           height={200}
           options={{
             title:{

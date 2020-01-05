@@ -25,7 +25,7 @@ const Expenses = () => {
 
   return (
     <div id="expenses-container">
-      <GraphContainer />
+      <GraphContainer expenses={expenses} />
       <Tables expenses={expenses} />
     </div>
   );
