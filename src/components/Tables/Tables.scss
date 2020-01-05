@@ -11,25 +11,33 @@
       height: 30px;
       display: flex;
       align-items: center;
-      padding-left: 10px;
+      justify-content: space-between;
+      padding: 0px 15px;
       border-top: 1px solid $sand-shadow;
       border-bottom: 1px solid $sand-shadow;
       background: rgba($sand, 0.5);
       cursor: pointer;
       color: $night-blue-shadow;
 
+      .title {
+        display: flex;
+        align-items: center;
+      }
+
       svg {
-        margin: 5px;
+        margin-right: 5px;
+      }
+
+      .sum {
+        font-weight: 700;
       }
     }
 
     .table-content {
-      display: none;
+      max-height: 0px;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out;
       width: 100%;
-
-      &.opened {
-        display: block;
-      }
 
       .table-row {
         margin: 0 auto;
