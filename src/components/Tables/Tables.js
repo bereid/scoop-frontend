@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { MdExpandMore, MdExpandLess, MdCheckBoxOutlineBlank, MdCheckBox, MdDelete } from "react-icons/md";
-import ColoredIcons from '../ColoredIcons';
 
 import './Tables.scss';
 
@@ -38,7 +37,7 @@ const Tables = (props) => {
       <div className="table">
         <div className="table-header" onClick={() => expandTable(group)}>
           <div className="title">
-            <ColoredIcons>{expandedTables.includes(group) ? <MdExpandLess /> : <MdExpandMore />}</ColoredIcons>
+            {expandedTables.includes(group) ? <MdExpandLess /> : <MdExpandMore />}
             {tableNames[group]}
           </div>
           <span className="sum">{sumOfExpenses}</span>
@@ -46,10 +45,10 @@ const Tables = (props) => {
         <div id={group} className={"table-content " + (expandedTables.includes(group) ? "opened" : "")}>
           {filteredExpenses.map(expense => (
             <div className="table-row" key={expense._id}>
-              <div className="cell icon" onClick={() => checking(expense._id)}><ColoredIcons>{checked.includes(expense._id) ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}</ColoredIcons></div>
+              <div className="cell icon" onClick={() => checking(expense._id)}>{checked.includes(expense._id) ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}</div>
               <div className="cell growing">{expense.name}</div>
               <div className="cell wider">{expense.price} HUF</div>
-              <div className="cell icon"><ColoredIcons><MdDelete /></ColoredIcons></div>
+              <div className="cell icon"><MdDelete /></div>
             </div>
           ))}
         </div>

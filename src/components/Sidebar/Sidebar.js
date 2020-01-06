@@ -1,16 +1,22 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
+
+import AddButton from '../AddButton';
 
 import './Sidebar.scss';
 
-const Sidebar = () => {
+const Sidebar = (props) => {
+  console.log(props)
   return (
     <div id="sidebar">
-      <NavLink to='/' exact={true}>Home</NavLink>
-      <NavLink to='/incomes'>Incomes</NavLink>
-      <NavLink to='/expenses' >Expenses</NavLink>
+      <div className="nav-menu">
+        <NavLink to='/' exact={true}>Home</NavLink>
+        <NavLink to='/incomes'>Incomes & Future Plans</NavLink>
+        <NavLink to='/expenses' >Expenses</NavLink>
+      </div>
+      <AddButton />
     </div>
   );
 };
 
-export default Sidebar;
+export default withRouter(Sidebar);

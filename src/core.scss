@@ -4,10 +4,24 @@
   font-family: 'Quicksand', sans-serif;
 }
 
+svg {
+  fill: $night-blue;
+  &:hover {
+    fill: $night-blue-shadow;
+  }
+}
+
 body {
   width: 100%;
   padding: 0;
   margin: 0;
+
+  svg {
+    fill: $night-blue;
+    &:hover {
+      fill: $night-blue-shadow;
+    }
+  }
   
   #app-container {
     #header {
